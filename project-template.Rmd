@@ -1,0 +1,149 @@
+---
+title: "Your Project Title (be descriptive and creative!)"
+author: "Student name(s) and group number (or student number if working individually)"
+subtitle: "You can either put a subtitle here, or delete this line"
+date: March 31, 2022
+output: 
+  beamer_presentation:
+    theme: "Pittsburgh"
+    colortheme: "orchid"
+    fonttheme: "structurebold"
+    slide_level: 2
+classoption: "aspectratio=169"
+fontsize: 11pt
+urlcolor: blue
+---
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# echo=FALSE will stop the code chunk from appearing in the knit document
+# warning=FALSE and message=FALSE will stop R messages from appearing in the knit document
+library(tidyverse)
+
+# here is the data for this project
+expedia_data <- read_csv("ExpediaSearchData.csv")
+
+# see the Project Overview page for more information: 
+# https://q.utoronto.ca/courses/235890/pages/project-overview
+```
+
+
+## A heading that starts on a new page
+
+This document shows a few basics on making slides with R markdown.
+
+To produce the slides, Knit to PDF (Beamer).
+
+The examples shown were made with the `cars` dataset, which is NOT your project dataset.
+
+---
+
+Three dashes starts a new page when it is not started by a new header. If you want to put a gap between parts of a slide `\vspace{0.3cm}` will do it. You can change the number inside the curly brackets to get a smaller or larger gap.
+
+\vspace{0.8cm}
+
+### This is a heading that doesn't start a new page but makes a nice emphasis box
+
+You can make text **bold** or in *italics*.
+
+To make bullet points, start the points after a blank line:
+ 
+- point one\
+- another point (you need to do a double space or a backslash to start a new line)
+
+## Markdown has nice formatting options for you
+
+1. Check out the cheat sheet [https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+    i) Oh look! A sub-item in the list (note two 'tabs' before this line)
+2. You can get help making tables here: [https://www.tablesgenerator.com/markdown_tables#](https://www.tablesgenerator.com/markdown_tables#)
+
+| A column header | Another column header                |
+|-----------------|--------------------------------------|
+| First row       | First row, but now the second column |
+
+---
+
+## You can also use LaTeX commands 
+
+Examples include:
+
+- changing text colour, e.g.,  Roses are \textcolor{red}{red}, violets are \textcolor{blue}{blue}\
+- writing equations and mathematical symbols, both inline and not inline e.g., the equation of a line and subscripts like H_0 to $H_0$\
+
+---
+
+If you include an image _not_ created in R, you MUST make sure that you provide the file with your upload. You will lose reproducibility marks if we can't recreate your report and this includes external images. The scale command changes the size.
+
+\begin{center}
+\includegraphics[width=7.5cm, height=4.5cm]{images/example-image.jpeg}
+\end{center}
+
+Photo by [Adi Goldstein]("https://unsplash.com/@adigold1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash]("https://unsplash.com/s/photos/code?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText")
+  
+
+---
+
+Include some R output
+
+```{r, fig.height=4}
+# I've set the fig.height to 4 so it fits on the slide
+ggplot(cars, aes(x=speed, y=dist)) + 
+  geom_point() +
+  theme_minimal()
+```
+
+---
+
+Include the output without showing the code and R messages (which is what you want for your final submission).  This R code chunk also changes the size of the plot: `fig.height=3, fig.width=4` and it's position: `fig.align='center'`.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, fig.width=4, fig.align='center'}
+ggplot(cars, aes(x=speed, y=dist)) + 
+  geom_point() +
+  theme_minimal()
+```
+
+This plot shows that there is a positive relationship between distance and speed.
+
+## Read more
+
+For more on creating an `beamer` presentation see [https://bookdown.org/yihui/rmarkdown/beamer-presentation.html](https://bookdown.org/yihui/rmarkdown/beamer-presentation.html)
+
+You can change the style, colours and fonts in your presentation by picking from a library of available themes. Once you find ones you like, you change the settings in the YAML section at the top of this RMarkdown document.
+[http://deic.uab.es/~iblanes/beamer_gallery/index.html](http://deic.uab.es/~iblanes/beamer_gallery/index.html) 
+
+
+# Headings you should include in your project
+
+## Introduction
+
+Include here a few sentences to introduce the problem and provide context. You might want to briefly summarize the data in words (what is the data and what is it used for). You can present the questions you are investigating here. 
+
+## Objectives (optional)
+
+You can list the questions of interest in complete English sentences here to highlight them. 
+
+## Data Summary (optional)
+
+Here you can explain how you cleaned the data and created variables suitable for answering your questions. 
+You can also include graphical displays that either motivated or address the questions.
+
+## Statistical Methods
+
+Describe here what you have done to the data without presenting any results (output). If you want to indicate variables by symbols or variable names, define them here. 
+
+## Results
+
+Present the main results here, in order of importance, related to the questions asked. You might use tables or graphs, or other ways to summarize your results.
+
+## Conclusion
+
+Give your main conclusions here. Follow the order of questions you presented. 
+
+Here you can also mention any additional considerations, concerns, or issues you might have. For example, if the results were unexpected, you can discuss this and perhaps offer possible explanations.
+
+## References and Acknowledgements (optional)
+
+If you received any help from someone other than your group members you can acknowledge them. For example:   
+*The authors would like to thank "TA name" for their helpful suggestions and comments that improved the presentation of this poster.*
+
+
