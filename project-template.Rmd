@@ -19,12 +19,6 @@ urlcolor: blue
 # echo=FALSE will stop the code chunk from appearing in the knit document
 # warning=FALSE and message=FALSE will stop R messages from appearing in the knit document
 library(tidyverse)
-
-# here is the data for this project
-expedia_data <- read_csv("ExpediaSearchData.csv")
-
-# see the Project Overview page for more information: 
-# https://q.utoronto.ca/courses/235890/pages/project-overview
 ```
 
 
